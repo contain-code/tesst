@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import Web3modal from "web3modal";
 
-import { chatAppAddress, ChatAppABI, ChatAppAddress } from "../Context/constants";
+import { ChatAppABI, ChatAppAddress } from "../Context/constants";
 
 export const checkIfWalletConnected = async () => {
     try {
@@ -36,7 +36,7 @@ const fetchContract = (signerOrProvider) =>
 
 export const connectingWithContract = async () => {
     try{
-        const web3modal = new web3modal();
+        const web3modal = new Web3modal();
         const connection = await web3modal.connect();
         const provider = new ethers.providers.Web3Provider(connection);
         const signer = provider.getSigner();
